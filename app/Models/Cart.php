@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Loan extends Model
+class Cart extends Model
 {
     use HasFactory;
 
     /**
-     * Get the user that owns the Loan
+     * Get the user that owns the Cart
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -20,13 +20,14 @@ class Loan extends Model
         return $this->belongsTo(User::class);
     }
 
+
     /**
-     * Get the book that owns the Loan
+     * Get the product that owns the Cart
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function book(): BelongsTo
+    public function product(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Product::class);
     }
 }
